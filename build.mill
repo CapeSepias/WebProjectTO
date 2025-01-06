@@ -33,25 +33,25 @@ object `package` extends RootModule {
     def moduleDeps = Seq(shared.jvm)
     def ivyDeps = Agg(ivy"com.lihaoyi::cask:0.9.1")
 
-    // Sources for the backend
+    // Sources voor de backend
     override def sources = T.sources(
       millSourcePath / "backend" / "src",
       millSourcePath / "backend" / "webapp"
     )
 
-    // Resources for the backend
+    // Resources voor de backend
     override def resources = T.sources {
       millSourcePath / "backend" / "resources"
     }
 
-    // The main class for the backend
+    // De main class voor de backend
     def mainClass = Some("backend.webapp.WebApp")
   }
 
-  // Set a default main class for mill run
+  // Stel een default main class in voor mill run
   override def mainClass = backend.mainClass
 
-  // Ensure client resources are copied to the backend
+  // Zorg dat client-resources naar backend worden gekopieerd
   override def resources = T {
     val jsPath = client.fastLinkJS().dest.path
     val dest = T.dest / "webapp"
