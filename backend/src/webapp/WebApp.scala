@@ -1,4 +1,4 @@
-package webapp
+package backend.webapp
 import scalatags.Text.all._
 import scalatags.Text.tags2
 import shared.{Shared, Todo}
